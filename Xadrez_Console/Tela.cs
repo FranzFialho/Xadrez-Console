@@ -14,7 +14,6 @@ namespace Xadrez_Console
                     if (tab.peca(i, j) == null)
                     {
                         Console.Write("- ");
-                        
                     }
                     else
                     {
@@ -23,8 +22,6 @@ namespace Xadrez_Console
                 }
                 Console.WriteLine();
             }
-
         }
-
     }
 }
