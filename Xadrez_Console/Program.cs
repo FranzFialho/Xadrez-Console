@@ -1,6 +1,7 @@
 ﻿using System;
 using tabuleiro;
 using Xadrez;
+using System.Collections.Generic;
 
 namespace Xadrez_Console
 {
@@ -18,11 +19,9 @@ namespace Xadrez_Console
                     try
                     {
                         Console.Clear();
-                        Tela.ImprimirTabuleiro(partida.Tab);
-                        Console.WriteLine();
-                        Console.WriteLine("\nTurno: " + partida.Turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
 
+                        Tela.ImprimirPartida(partida);
+                        
                         Console.Write("\n\nDigite a posição de origem: ");
                         Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
 
