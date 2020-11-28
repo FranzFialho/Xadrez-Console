@@ -4,58 +4,59 @@ namespace tabuleiro
 {
     class Tabuleiro
     {
-        public int linhas { get; set; }
-        public int colunas { get; set; }
+        public int Linhas { get; set; }
+        public int Colunas { get; set; }
 
-        private Peca[,] pecas;
+        private Peca[,] Pecas;
 
-        public Tabuleiro(int linha, int colunas)
+        public Tabuleiro(int linhas, int colunas)
         {
-            this.linhas = linha;
-            this.colunas = colunas;
+            Linhas = linhas;
+            Colunas = colunas;
 
-            pecas = new Peca[linhas, colunas];
+            Pecas = new Peca[linhas, colunas];
         }
 
-        public Peca peca(int linha, int coluna)
+        public Peca Peca(int linha, int coluna)
         {
-            return pecas[linha, coluna];
+            return Pecas[linha, coluna];
         }
 
-        public Peca peca(Posicao pos)
+        public Peca Peca(Posicao pos)
         {
-            return pecas[pos.linha, pos.coluna];
+            return Pecas[pos.Linha, pos.Coluna];
         }
 
-        public bool existePeca(Posicao pos)
+        public bool ExistePeca(Posicao pos)
         {
-            validarPosição(pos);
-            return peca(pos) != null;
+            ValidarPosição(pos);
+            return Peca(pos) != null;
         }
-        public void colocarPeca(Peca p, Posicao pos)
+
+        public void ColocarPeca(Peca p, Posicao pos)
         {
-            if (existePeca(pos))
+            if (ExistePeca(pos))
             {
                 throw new TabuleiroException("Já existe uma peça nessa posição! ");
             }
-            pecas[pos.linha, pos.coluna] = p;
-            p.posicao = pos;
+            Pecas[pos.Linha, pos.Coluna] = p;
+            p.Posicao = pos;
         }
 
-        public bool posiçãoValida(Posicao pos)
+        public bool PosiçãoValida(Posicao pos)
         {
-            if(pos.linha <0 || pos.linha >=linhas || pos.coluna<0 || pos.coluna >= colunas)
+            if(pos.Linha <0 || pos.Linha >=Linhas || pos.Coluna<0 || pos.Coluna >= Colunas)
             {
                 return false;
             }
             return true;
         }
 
-        public void validarPosição(Posicao pos)
+        public void ValidarPosição(Posicao pos)
         {
-            if (!posiçãoValida(pos))
+            if (!PosiçãoValida(pos))
             {
-                throw new TabuleiroException("Posição Invalida!");
+                throw new TabuleiroException("Posição Invalida! ");
             }
         }
     }
