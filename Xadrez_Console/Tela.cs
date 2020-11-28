@@ -21,7 +21,7 @@ namespace Xadrez_Console
             Console.Write("  A  B  C  D  E  F  G  H");
         }
 
-        public static void ImprimirTabuleiro(Tabuleiro tab,bool[,] posicoesPossiveis)
+        public static void ImprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
         {
 
             ConsoleColor FundoOriginal = Console.BackgroundColor;
@@ -32,7 +32,7 @@ namespace Xadrez_Console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.Colunas; j++)
                 {
-                    if(posicoesPossiveis[i,j] == true)
+                    if (posicoesPossiveis[i, j] == true)
                     {
                         Console.BackgroundColor = FundoAlterado;
                     }
