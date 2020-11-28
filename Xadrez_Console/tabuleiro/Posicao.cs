@@ -10,7 +10,13 @@ namespace tabuleiro
 
         public Posicao(int linha, int coluna)
         {
-            Linha= linha;
+            Linha = linha;
+            Coluna = coluna;
+        }
+
+        public void DefinirValores(int linha, int coluna)
+        {
+            Linha = linha;
             Coluna = coluna;
         }
 

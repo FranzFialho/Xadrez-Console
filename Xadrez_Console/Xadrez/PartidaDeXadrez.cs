@@ -17,6 +17,7 @@ namespace Xadrez
             Turno = 1;
             JogadorAtual = Cor.Branca;
             Terminada = false;
+            Terminada = false;
             ColocarPecas();
         }
    

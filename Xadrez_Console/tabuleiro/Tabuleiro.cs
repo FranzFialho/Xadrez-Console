@@ -53,6 +53,7 @@ namespace tabuleiro
             aux.Posicao = null;
             Pecas[pos.Linha, pos.Coluna] = null;
             return aux;
+            return aux;
         }
 
         public bool PosiçãoValida(Posicao pos)
