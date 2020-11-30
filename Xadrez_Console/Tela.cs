@@ -7,17 +7,24 @@ namespace Xadrez_Console
 {
     class Tela
     {
-
         public static void ImprimirPartida(PartidaDeXadrez partida)
         {
             ImprimirTabuleiro(partida.Tab);
             Console.WriteLine();
             ImprimirPecasCapturadas(partida);
             Console.WriteLine("\nTurno: " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
-            if (partida.Xeque)
+            if (!partida.Terminada)
             {
-                Console.WriteLine(partida.JogadorAtual + " Esta em Xeque!");
+                Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                if (partida.Xeque)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUE-MATE!");
+                Console.WriteLine("Vencedor: " + partida.JogadorAtual);
             }
         }
 
@@ -38,12 +45,12 @@ namespace Xadrez_Console
         public static void ImprimirConjunto(HashSet<Peca> conjunto)
         {
             Console.Write("[");
-            foreach(Peca x in conjunto)
+            foreach (Peca x in conjunto)
             {
                 Console.Write(x + " ");
             }
             Console.Write("]");
-        } 
+        }
 
 
         public static void ImprimirTabuleiro(Tabuleiro tab)

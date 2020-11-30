@@ -39,20 +39,22 @@ namespace Xadrez_Console
                     }
                     catch (TabuleiroException e)
                     {
-                        Console.WriteLine(e.Message);
+                        Console.WriteLine(e.Message+" Refaça o movimento...");
                         Console.ReadLine();
                     }
                     catch (Exception)
                     {
-                        Console.WriteLine("Invalido!");
+                        Console.WriteLine("Invalido! Refaça o movimento...");
                         Console.ReadLine();
                     }
                 }
+                Console.Clear();
+                Tela.ImprimirPartida(partida);
             }
 
             catch (TabuleiroException e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message+ " Refaça o movimento...");
             }
 
             Console.ReadLine();
