@@ -29,7 +29,7 @@ namespace tabuleiro
 
         public bool ExistePeca(Posicao pos)
         {
-            ValidarPosição(pos);
+            ValidarPosicao(pos);
             return Peca(pos) != null;
         }
 
@@ -55,7 +55,7 @@ namespace tabuleiro
             return aux;
         }
 
-        public bool PosiçãoValida(Posicao pos)
+        public bool PosicaoValida(Posicao pos)
         {
             if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
             {
@@ -64,9 +64,9 @@ namespace tabuleiro
             return true;
         }
 
-        public void ValidarPosição(Posicao pos)
+        public void ValidarPosicao(Posicao pos)
         {
-            if (!PosiçãoValida(pos))
+            if (!PosicaoValida(pos))
             {
                 throw new TabuleiroException("Posição Invalida! ");
             }

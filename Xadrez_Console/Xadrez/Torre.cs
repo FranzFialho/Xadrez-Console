@@ -26,7 +26,7 @@ namespace Xadrez
 
             //acima
             pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
-            while (Tab.PosiçãoValida(pos) && PodeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
@@ -37,7 +37,7 @@ namespace Xadrez
             }
             //Abaixo
             pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
-            while (Tab.PosiçãoValida(pos) && PodeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
@@ -48,7 +48,7 @@ namespace Xadrez
             }
             //Direita
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
-            while (Tab.PosiçãoValida(pos) && PodeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)
@@ -59,7 +59,7 @@ namespace Xadrez
             }
             //Esquerda
             pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
-            while (Tab.PosiçãoValida(pos) && PodeMover(pos))
+            while (Tab.PosicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
                 if (Tab.Peca(pos) != null && Tab.Peca(pos).Cor != Cor)

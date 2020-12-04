@@ -1,6 +1,4 @@
 ﻿using System;
-
-
 namespace tabuleiro
 {
     abstract class Peca
