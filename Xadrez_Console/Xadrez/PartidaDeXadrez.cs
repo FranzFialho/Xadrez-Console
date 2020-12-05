@@ -6,7 +6,6 @@ namespace Xadrez
 {
     class PartidaDeXadrez
     {
-
         public Tabuleiro Tab { get; private set; }
         public int Turno { get; private set; }
         public Cor JogadorAtual { get; private set; }
@@ -15,7 +14,6 @@ namespace Xadrez
         private HashSet<Peca> Capturadas;
         public bool Xeque { get; private set; }
         public Peca VulneravelEnPassant { get; private set; }
-
 
         public PartidaDeXadrez()
         {
@@ -115,13 +113,13 @@ namespace Xadrez
             }
 
             //#JOGADA ESPECIAL EN PASSANT
-            if(p is Peao)
+            if (p is Peao)
             {
-                if(origem.Coluna != destino.Coluna && pecaCapturada == VulneravelEnPassant)
+                if (origem.Coluna != destino.Coluna && pecaCapturada == VulneravelEnPassant)
                 {
                     Peca peao = Tab.RetirarPeca(destino);
                     Posicao PosP;
-                    if(p.Cor == Cor.Branca)
+                    if (p.Cor == Cor.Branca)
                     {
                         PosP = new Posicao(3, destino.Coluna);
                     }
@@ -144,6 +142,20 @@ namespace Xadrez
                 throw new TabuleiroException("Você não pode se colocar em xeque!");
             }
 
+            Peca P = Tab.Peca(destino);
+            //#JOGADA ESPECIAL PROMOCAO
+            if (P is Peao)
+            {
+                if ((P.Cor == Cor.Branca && destino.Linha == 0) || (P.Cor == Cor.Preta && destino.Linha == 7))
+                {
+                    P = Tab.RetirarPeca(destino);
+                    Pecas.Remove(P);
+                    Peca dama = new Dama(Tab, P.Cor);
+                    Tab.ColocarPeca(dama, destino);
+                    Pecas.Add(dama);
+                }
+            }
+
             if (EstaEmXeque(Adversaria(JogadorAtual)))
             {
                 Xeque = true;
@@ -163,8 +175,6 @@ namespace Xadrez
                 MudaJogador();
             }
 
-            Peca P = Tab.Peca(destino);
-
             //#JOGADA ESPECIAL EN PASSANT
             if (P is Peao && (destino.Linha == origem.Linha - 2 || destino.Linha == origem.Linha + 2))
             {
@@ -175,8 +185,6 @@ namespace Xadrez
                 VulneravelEnPassant = null;
             }
         }
-
-
 
         public void ValidarPosicaoDeOrigem(Posicao pos)
         {

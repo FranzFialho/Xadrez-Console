@@ -27,7 +27,6 @@ namespace Xadrez_Console
                 Console.WriteLine("Vencedor: " + partida.JogadorAtual);
             }
         }
-
         public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
         {
             Console.WriteLine("\nPeças capturadas: ");
@@ -51,7 +50,6 @@ namespace Xadrez_Console
             }
             Console.Write("]");
         }
-
 
         public static void ImprimirTabuleiro(Tabuleiro tab)
         {
